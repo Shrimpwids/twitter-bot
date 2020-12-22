@@ -18,7 +18,7 @@ api = tweepy.API(auth
 
 def job(): 
   variable = [
-    '',
+    '', # add whatever you want your bot to say here like for example 'do yall got laptops'
     '',
     '',
     '']
