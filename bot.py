@@ -24,18 +24,17 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(key, secret)
 api = tweepy.API(auth)
 
+
+
 # needed for StreamListener and everything else for the reply code
-
-
 def setUpAuth():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(key, secret)
     api = tweepy.API(auth)
     return api, auth
 
+
 # what the bot uses to tweet
-
-
 def job():
     variable = [
         '',
@@ -62,9 +61,9 @@ class StdOutListener(StreamListener):
         tweet = random.choice(table)
         respondToTweet(tweet, tweetId)
 
+        
+        
 # streams for tweets with account name
-
-
 def followStream():
     api, auth = setUpAuth()
     listener = StdOutListener()
@@ -76,9 +75,9 @@ def respondToTweet(tweet, tweetId):
     api, auth = setUpAuth()
     api.update_status(tweet, in_reply_to_status_id=tweetId, auto_populate_reply_metadata=True)
 
+    
+    
 # tells the bot to tweet every x amount of minutes
-
-
 def main():
     schedule.every(x).minutes.do(job)
     while True:
